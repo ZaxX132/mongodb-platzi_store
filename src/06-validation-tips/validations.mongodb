@@ -1,0 +1,42 @@
+use('platzi_store')
+db.getCollectionInfos()
+db.runCommand({
+    $jsonSchema:{
+        collMod:'users',
+        validator:{
+            $jsonSchema: {
+                additionalProperties:true,
+                bsonType: 'object',
+                required: ['_id','email', 'password'],
+                properties: {
+                    _id:{
+                        bsonType:'objectId'
+                    },
+                    name: {
+                        bsonType: 'string'
+                    },
+                    last_name: {
+                        bsonType: 'string'
+                    },
+                    email: {
+                        bsonType: 'string',
+                        pattern: "^[A-Za-z\d.-]{1,}@[A-Za-z\d.-]{1,}[.]{1}[A-Za-z\d.-]{1,}$"
+                    },
+                    password: {
+                        bsonType: 'string',
+                        pattern: "^.{10,40}$"
+                    },
+                    age:{
+                        bsonType:'number',
+                        minimum:18,
+                        maximum:99
+                    },
+                    role:{
+                        enum:['customer','admin','seller']
+                    }
+                }
+            }
+        }
+        }
+    }
+)
