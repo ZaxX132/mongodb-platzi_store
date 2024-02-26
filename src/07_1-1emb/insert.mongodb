@@ -1,0 +1,21 @@
+use("platzi_store")
+db.users.insertOne({
+    
+    name:"Franco",
+    last_name:"Alva",
+    email:"asdasd@gmail.com",
+    password:"asdasdasdasd",
+    age:19,
+    role:'customer',
+    adress:{
+        street:'cr 891',
+        city:"Lima",
+        zip:'11011'
+    },
+    shipping_address:{
+        street:'cr 892',
+        city:'Lima',
+        zip:'11011'
+    }
+})
+db.users.find()

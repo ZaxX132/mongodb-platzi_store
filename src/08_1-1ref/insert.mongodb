@@ -1,0 +1,15 @@
+use("platzi_store")
+db.stores.insertOne({
+    storeId:'ST001',
+    name:'Knotting Around',
+    address:"Av. Colombia"
+})
+db.stores_details.insertOne({
+    storeId:'ST001',
+    description:'Long long ago, far far away',
+    address:"Av. Colombia",
+    manager:{
+        email:'franco99alva@gmail.com',
+        cellphone:'949942957'
+    }
+})
